@@ -69,6 +69,24 @@ namespace ProyectoProgramacion.Forms
                 }
             }
 
+            //Eliminar archivos actuales si existen. 2021-10-04
+            //Obtenemos todos los archivos
+            DirectoryInfo di = new DirectoryInfo(Environment.CurrentDirectory + "\\Imagenes\\");
+            FileInfo[] files = di.GetFiles();
+            //Recorremos todos los archivos
+            foreach (FileInfo file in files)
+            {
+                //Eliminarmos el archivo
+                file.Delete();
+            }
+
+            //Validar que el titulo del juego no este vacio. 2021-10-04
+            if (this.txtTitulo.Text.Trim() == string.Empty)
+            { 
+                MessageBox.Show("El campo titulo es requerido.");
+                return;
+            }
+
             //Variable que contiene el numero para el nombre de la imagen
             int numero = 1;
             //Recorrer todos los archivos para guardarlos en el openFileDialog
@@ -84,6 +102,16 @@ namespace ProyectoProgramacion.Forms
             }
 
             MessageBox.Show("Imagenes cargadas con éxito al sistema.");
+
+            //Mostramos la cantidad de imagenes cargadas. 2021-10-04
+            this.lblCantidad.Text = "10 imagenes cargadas.";
+        }
+
+        private void btnContinuar_Click(object sender, EventArgs e)
+        {
+            FormularioJuego frmJuego = new FormularioJuego();
+            frmJuego._titulo = this.txtTitulo.Text;
+            frmJuego.Show();
         }
     }
 }

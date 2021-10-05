@@ -30,16 +30,20 @@ namespace ProyectoProgramacion.Forms
         private void InitializeComponent()
         {
             this.gbxConfiguracion = new System.Windows.Forms.GroupBox();
+            this.btnContinuar = new System.Windows.Forms.Button();
             this.btnCargarImg = new System.Windows.Forms.Button();
             this.lblImagenes = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.ofdImagenes = new System.Windows.Forms.OpenFileDialog();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.gbxConfiguracion.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxConfiguracion
             // 
+            this.gbxConfiguracion.Controls.Add(this.lblCantidad);
+            this.gbxConfiguracion.Controls.Add(this.btnContinuar);
             this.gbxConfiguracion.Controls.Add(this.btnCargarImg);
             this.gbxConfiguracion.Controls.Add(this.lblImagenes);
             this.gbxConfiguracion.Controls.Add(this.txtTitulo);
@@ -50,6 +54,17 @@ namespace ProyectoProgramacion.Forms
             this.gbxConfiguracion.TabIndex = 0;
             this.gbxConfiguracion.TabStop = false;
             this.gbxConfiguracion.Text = "Configuración";
+            // 
+            // btnContinuar
+            // 
+            this.btnContinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinuar.Location = new System.Drawing.Point(657, 431);
+            this.btnContinuar.Name = "btnContinuar";
+            this.btnContinuar.Size = new System.Drawing.Size(94, 29);
+            this.btnContinuar.TabIndex = 4;
+            this.btnContinuar.Text = "Continuar";
+            this.btnContinuar.UseVisualStyleBackColor = true;
+            this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
             // 
             // btnCargarImg
             // 
@@ -77,7 +92,6 @@ namespace ProyectoProgramacion.Forms
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(568, 27);
             this.txtTitulo.TabIndex = 1;
-            this.txtTitulo.Text = "Ingrese un titulo....";
             // 
             // lblTitulo
             // 
@@ -93,6 +107,14 @@ namespace ProyectoProgramacion.Forms
             this.ofdImagenes.FileName = "ofdImagenes";
             this.ofdImagenes.Multiselect = true;
             this.ofdImagenes.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdImagenes_FileOk);
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(283, 152);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(0, 20);
+            this.lblCantidad.TabIndex = 5;
             // 
             // FormularioInicial
             // 
@@ -120,5 +142,7 @@ namespace ProyectoProgramacion.Forms
         private System.Windows.Forms.Label lblImagenes;
         private System.Windows.Forms.OpenFileDialog ofdImagenes;
         private System.Windows.Forms.Button btnCargarImg;
+        private System.Windows.Forms.Button btnContinuar;
+        private System.Windows.Forms.Label lblCantidad;
     }
 }
