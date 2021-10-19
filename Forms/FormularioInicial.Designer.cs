@@ -30,18 +30,20 @@ namespace ProyectoProgramacion.Forms
         private void InitializeComponent()
         {
             this.gbxConfiguracion = new System.Windows.Forms.GroupBox();
+            this.btnAyuda = new System.Windows.Forms.Button();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.btnContinuar = new System.Windows.Forms.Button();
             this.btnCargarImg = new System.Windows.Forms.Button();
             this.lblImagenes = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.ofdImagenes = new System.Windows.Forms.OpenFileDialog();
-            this.lblCantidad = new System.Windows.Forms.Label();
             this.gbxConfiguracion.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxConfiguracion
             // 
+            this.gbxConfiguracion.Controls.Add(this.btnAyuda);
             this.gbxConfiguracion.Controls.Add(this.lblCantidad);
             this.gbxConfiguracion.Controls.Add(this.btnContinuar);
             this.gbxConfiguracion.Controls.Add(this.btnCargarImg);
@@ -54,6 +56,26 @@ namespace ProyectoProgramacion.Forms
             this.gbxConfiguracion.TabIndex = 0;
             this.gbxConfiguracion.TabStop = false;
             this.gbxConfiguracion.Text = "Configuración";
+            // 
+            // btnAyuda
+            // 
+            this.btnAyuda.BackgroundImage = global::ProyectoProgramacion.Properties.Resources.info;
+            this.btnAyuda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAyuda.Location = new System.Drawing.Point(6, 331);
+            this.btnAyuda.Name = "btnAyuda";
+            this.btnAyuda.Size = new System.Drawing.Size(94, 109);
+            this.btnAyuda.TabIndex = 6;
+            this.btnAyuda.UseVisualStyleBackColor = true;
+            this.btnAyuda.Click += new System.EventHandler(this.btnAyuda_Click);
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(283, 152);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(0, 20);
+            this.lblCantidad.TabIndex = 5;
             // 
             // btnContinuar
             // 
@@ -108,14 +130,6 @@ namespace ProyectoProgramacion.Forms
             this.ofdImagenes.Multiselect = true;
             this.ofdImagenes.FileOk += new System.ComponentModel.CancelEventHandler(this.ofdImagenes_FileOk);
             // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(283, 152);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(0, 20);
-            this.lblCantidad.TabIndex = 5;
-            // 
             // FormularioInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -144,5 +158,6 @@ namespace ProyectoProgramacion.Forms
         private System.Windows.Forms.Button btnCargarImg;
         private System.Windows.Forms.Button btnContinuar;
         private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.Button btnAyuda;
     }
 }

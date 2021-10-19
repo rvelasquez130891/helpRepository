@@ -32,9 +32,9 @@ namespace ProyectoProgramacion.Forms
             this.components = new System.ComponentModel.Container();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbxMarcadores = new System.Windows.Forms.GroupBox();
+            this.lblPtsDescripcion = new System.Windows.Forms.Label();
             this.lblTiempo = new System.Windows.Forms.Label();
-            this.lblPutos = new System.Windows.Forms.Label();
-            this.lblNivel = new System.Windows.Forms.Label();
+            this.lblPuntos = new System.Windows.Forms.Label();
             this.btnJugarNuevamente = new System.Windows.Forms.Button();
             this.pnlImagenes = new System.Windows.Forms.Panel();
             this.pbxImg20 = new System.Windows.Forms.PictureBox();
@@ -59,6 +59,9 @@ namespace ProyectoProgramacion.Forms
             this.pbxImg1 = new System.Windows.Forms.PictureBox();
             this.scoreTimer = new System.Windows.Forms.Timer(this.components);
             this.secondsTimer = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.VoltearTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnSalir = new System.Windows.Forms.Button();
             this.gbxMarcadores.SuspendLayout();
             this.pnlImagenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImg20)).BeginInit();
@@ -96,9 +99,9 @@ namespace ProyectoProgramacion.Forms
             // 
             // gbxMarcadores
             // 
+            this.gbxMarcadores.Controls.Add(this.lblPtsDescripcion);
             this.gbxMarcadores.Controls.Add(this.lblTiempo);
-            this.gbxMarcadores.Controls.Add(this.lblPutos);
-            this.gbxMarcadores.Controls.Add(this.lblNivel);
+            this.gbxMarcadores.Controls.Add(this.lblPuntos);
             this.gbxMarcadores.Font = new System.Drawing.Font("Modern No. 20", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gbxMarcadores.Location = new System.Drawing.Point(12, 67);
             this.gbxMarcadores.Name = "gbxMarcadores";
@@ -106,6 +109,15 @@ namespace ProyectoProgramacion.Forms
             this.gbxMarcadores.TabIndex = 1;
             this.gbxMarcadores.TabStop = false;
             this.gbxMarcadores.Text = "Marcador";
+            // 
+            // lblPtsDescripcion
+            // 
+            this.lblPtsDescripcion.AutoSize = true;
+            this.lblPtsDescripcion.Location = new System.Drawing.Point(10, 43);
+            this.lblPtsDescripcion.Name = "lblPtsDescripcion";
+            this.lblPtsDescripcion.Size = new System.Drawing.Size(65, 21);
+            this.lblPtsDescripcion.TabIndex = 4;
+            this.lblPtsDescripcion.Text = "Puntos:";
             // 
             // lblTiempo
             // 
@@ -117,23 +129,14 @@ namespace ProyectoProgramacion.Forms
             this.lblTiempo.TabIndex = 3;
             this.lblTiempo.Text = "60";
             // 
-            // lblPutos
+            // lblPuntos
             // 
-            this.lblPutos.AutoSize = true;
-            this.lblPutos.Location = new System.Drawing.Point(99, 36);
-            this.lblPutos.Name = "lblPutos";
-            this.lblPutos.Size = new System.Drawing.Size(77, 21);
-            this.lblPutos.TabIndex = 1;
-            this.lblPutos.Text = "Puntos: 0";
-            // 
-            // lblNivel
-            // 
-            this.lblNivel.AutoSize = true;
-            this.lblNivel.Location = new System.Drawing.Point(6, 36);
-            this.lblNivel.Name = "lblNivel";
-            this.lblNivel.Size = new System.Drawing.Size(66, 21);
-            this.lblNivel.TabIndex = 0;
-            this.lblNivel.Text = "Nivel: 0";
+            this.lblPuntos.AutoSize = true;
+            this.lblPuntos.Location = new System.Drawing.Point(93, 43);
+            this.lblPuntos.Name = "lblPuntos";
+            this.lblPuntos.Size = new System.Drawing.Size(18, 21);
+            this.lblPuntos.TabIndex = 1;
+            this.lblPuntos.Text = "0";
             // 
             // btnJugarNuevamente
             // 
@@ -144,6 +147,7 @@ namespace ProyectoProgramacion.Forms
             this.btnJugarNuevamente.TabIndex = 5;
             this.btnJugarNuevamente.Text = "Jugar Nuevamente";
             this.btnJugarNuevamente.UseVisualStyleBackColor = true;
+            this.btnJugarNuevamente.Click += new System.EventHandler(this.btnJugarNuevamente_Click);
             // 
             // pnlImagenes
             // 
@@ -402,11 +406,32 @@ namespace ProyectoProgramacion.Forms
             this.secondsTimer.Interval = 1000;
             this.secondsTimer.Tick += new System.EventHandler(this.secondsTimer_Tick);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            // 
+            // VoltearTimer
+            // 
+            this.VoltearTimer.Interval = 300;
+            this.VoltearTimer.Tick += new System.EventHandler(this.VoltearTimer_Tick);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalir.Location = new System.Drawing.Point(619, 6);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(34, 29);
+            this.btnSalir.TabIndex = 8;
+            this.btnSalir.Text = "X";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FormularioJuego
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(662, 781);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pnlImagenes);
             this.Controls.Add(this.btnJugarNuevamente);
             this.Controls.Add(this.gbxMarcadores);
@@ -449,8 +474,7 @@ namespace ProyectoProgramacion.Forms
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.GroupBox gbxMarcadores;
         private System.Windows.Forms.Label lblTiempo;
-        private System.Windows.Forms.Label lblPutos;
-        private System.Windows.Forms.Label lblNivel;
+        private System.Windows.Forms.Label lblPuntos;
         private System.Windows.Forms.Button btnJugarNuevamente;
         private System.Windows.Forms.Panel pnlImagenes;
         private System.Windows.Forms.PictureBox pbxImg20;
@@ -475,5 +499,9 @@ namespace ProyectoProgramacion.Forms
         private System.Windows.Forms.PictureBox pbxImg1;
         private System.Windows.Forms.Timer scoreTimer;
         private System.Windows.Forms.Timer secondsTimer;
+        private System.Windows.Forms.Label lblPtsDescripcion;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer VoltearTimer;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

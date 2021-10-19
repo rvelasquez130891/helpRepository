@@ -27,7 +27,7 @@ namespace ProyectoProgramacion.Forms
         /// <param name="e"></param>
         private void FormularioInicial_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         /// <summary>
@@ -112,6 +112,12 @@ namespace ProyectoProgramacion.Forms
             FormularioJuego frmJuego = new FormularioJuego();
             frmJuego._titulo = this.txtTitulo.Text;
             frmJuego.Show();
+        }
+
+        private void btnAyuda_Click(object sender, EventArgs e)
+        {
+            FormularioAyuda frmAyuda = new FormularioAyuda();
+            frmAyuda.Show();
         }
     }
 }
